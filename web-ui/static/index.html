@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExtreemeDB - In-Memory PL/SQL Database</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <h1><i class="fas fa-database"></i> ExtreemeDB</h1>
+                <p>In-Memory PL/SQL Database Management System</p>
+            </div>
+            <div class="connection-status">
+                <span id="connectionStatus" class="status-disconnected">
+                    <i class="fas fa-circle"></i> Disconnected
+                </span>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="sidebar">
+                <div class="sidebar-section">
+                    <h3><i class="fas fa-table"></i> Tables</h3>
+                    <div id="tablesList" class="tables-list">
+                        <div class="loading">Loading tables...</div>
+                    </div>
+                </div>
+                
+                <div class="sidebar-section">
+                    <h3><i class="fas fa-history"></i> Query History</h3>
+                    <div id="queryHistory" class="query-history">
+                        <div class="no-history">No queries executed yet</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-panel">
+                <div class="query-panel">
+                    <div class="query-header">
+                        <h3><i class="fas fa-code"></i> SQL Query Editor</h3>
+                        <div class="query-actions">
+                            <button id="clearBtn" class="btn btn-secondary">
+                                <i class="fas fa-eraser"></i> Clear
+                            </button>
+                            <button id="executeBtn" class="btn btn-primary">
+                                <i class="fas fa-play"></i> Execute
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="query-input">
+                        <textarea id="queryInput" placeholder="Enter your SQL query here...
+Examples:
+CREATE TABLE users (id INTEGER, name VARCHAR, age INTEGER);
+INSERT INTO users VALUES (1, 'John Doe', 25);
+SELECT * FROM users;
+DROP TABLE users;"></textarea>
+                    </div>
+                </div>
+
+                <div class="results-panel">
+                    <div class="results-header">
+                        <h3><i class="fas fa-table"></i> Query Results</h3>
+                        <div id="executionInfo" class="execution-info"></div>
+                    </div>
+                    
+                    <div id="resultsContent" class="results-content">
+                        <div class="no-results">
+                            <i class="fas fa-info-circle"></i>
+                            <p>Execute a query to see results here</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="loadingOverlay" class="loading-overlay" style="display: none;">
+        <div class="loading-spinner">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p>Executing query...</p>
+        </div>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
